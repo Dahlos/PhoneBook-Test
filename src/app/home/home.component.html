@@ -12,7 +12,7 @@
     mat-raised-button
     color="warn"
   >
-    Limpiar Filtros
+    Refrescar Lista
   </button>
   <div>
     <mat-form-field class="search-form-field">
@@ -29,7 +29,7 @@
         matSuffix
         mat-icon-button
         aria-label="Clear"
-        (click)="searchQuery = ''"
+        (click)="searchQuery = '';resetFilter()"
       >
         <mat-icon>close</mat-icon>
       </button>

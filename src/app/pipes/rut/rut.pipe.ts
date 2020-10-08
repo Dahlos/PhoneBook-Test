@@ -9,6 +9,10 @@ export class RutPipe implements PipeTransform {
     return value;
   }
 
+  /**
+   *
+   * @param rutCompleto
+   */
   validateRut(rutCompleto: string): boolean {
     var tmp = rutCompleto.split('-');
     var digv = tmp[1];
@@ -17,6 +21,10 @@ export class RutPipe implements PipeTransform {
     return this.digitoVerificador(rut) == digv;
   }
 
+  /**
+   *
+   * @param rut
+   */
   digitoVerificador(rut) {
     var M = 0,
       S = 1;
