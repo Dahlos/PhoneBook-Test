@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
   auxRegions: Region[];
   personas: Persona[];
   auxPersonas: Persona[];
-  filteredPersonas: Persona[];
   comunas: Comuna[];
   auxComunas: Comuna[];
   //
@@ -105,6 +104,10 @@ export class HomeComponent implements OnInit {
     this.comunas = this.auxComunas;
   }
 
+  /**
+   *
+   * @param region_id
+   */
   filterComunasByRegion(region_id: number) {
     this.regions = this.auxRegions;
     let currentRegion: Region = this.regions.find((region: Region) => {
@@ -114,6 +117,10 @@ export class HomeComponent implements OnInit {
     this.auxComunas = this.comunas;
   }
 
+  /**
+   *
+   * @param persona
+   */
   onClickPersonaDetail(persona: Persona) {
     let navigationExtras: NavigationExtras = {
       state: {
@@ -123,11 +130,17 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl(`/person`, navigationExtras);
   }
 
+  /**
+   *
+   */
   resetFilter() {
     this.regions = this.auxRegions;
     this.personas = this.auxPersonas;
   }
 
+  /**
+   *
+   */
   searchByDirection() {
     if (!this.selectedComuna && !this.selectedRegion) return;
 
