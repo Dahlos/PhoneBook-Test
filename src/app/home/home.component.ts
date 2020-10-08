@@ -27,8 +27,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true;
-    this.loadRegiones();
     this.loadPersonas();
+    this.loadRegiones();
   }
 
   /**
@@ -40,11 +40,12 @@ export class HomeComponent implements OnInit {
         this.regions = data;
         this.auxRegions = this.regions;
         this.comunas = this.regions[0].comunas;
-        this.loading = false;
       },
       (error) => {
+        window.alert(
+          'Ha ocurrido un error y no se ha podido cargar las regiones'
+        );
         console.log(error);
-        this.loading = false;
       }
     );
   }
@@ -59,9 +60,14 @@ export class HomeComponent implements OnInit {
           return persona.activo == 1;
         });
         this.auxPersonas = this.personas;
+        this.loading = false;
       },
       (error) => {
         console.log(error);
+        this.loading = false;
+        window.alert(
+          'Ha ocurrido un error y no se ha podido cargar los datos de las personas'
+        );
       }
     );
   }
