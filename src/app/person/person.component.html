@@ -1,30 +1,30 @@
-<div><button [routerLink]="['/home']">Atras</button></div>
-<div *ngIf="persona" class="main-div">
-  <div class="container">
-    <div>
-      <p>Nombre</p>
-      <h3>{{ persona.nombre }} {{ persona.apellido }}</h3>
-    </div>
-    <hr />
-    <div>
-      <p>RUT</p>
-      <h3>{{ persona.rut | rut }}</h3>
-    </div>
-    <hr />
-    <div>
-      <p>Telefono</p>
-      <h3>
-        {{ persona.telefono | telefono }}
-      </h3>
-    </div>
-    <hr />
-    <div>
-      <p>Direccion</p>
-      <h3>
-        Calle:{{ persona.direccion.calle }},{{
-          persona.direccion.comuna.nombre
-        }}
-      </h3>
-    </div>
-  </div>
-</div>
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    [routerLink]="['/home']"
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>keyboard_backspace</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-card *ngIf="persona" class="main-card">
+  <mat-card-header>
+    <mat-card-title>{{ persona.nombre }} {{ persona.apellido }}</mat-card-title>
+    <mat-card-subtitle
+      >{{ persona.direccion.calle }},{{
+        persona.direccion.comuna.nombre
+      }}</mat-card-subtitle
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card-header>
+      <mat-card-title>{{ persona.rut | rut }} </mat-card-title>
+      <mat-card-subtitle>RUT</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-header>
+      <mat-card-title>{{ persona.telefono | telefono }}</mat-card-title>
+      <mat-card-subtitle>Telefono</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card-content>
+</mat-card>

@@ -9,7 +9,13 @@ import { PersonComponent } from './person/person.component';
 import { TelefonoPipe } from './pipes/telefono/telefono.pipe';
 import { RutPipe } from './pipes/rut/rut.pipe';
 import { FormsModule } from '@angular/forms';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +25,19 @@ import { FormsModule } from '@angular/forms';
     TelefonoPipe,
   ],
 
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatCardModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

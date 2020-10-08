@@ -10,3 +10,8 @@
   color: red;
   font-weight: bold;
 }
+
+.main-card {
+  margin: 16px;
+  width: 92vw;
+}

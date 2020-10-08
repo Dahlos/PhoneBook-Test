@@ -1,42 +1,81 @@
 <div>
-  <h1>Personas</h1>
-  <button (click)="resetFilter()" class="btn-clear">Limpiar Filtros</button>
   <div>
-    <input
-      class="search-input"
-      type="text"
-      placeholder="Busqueda por nombre y/o apellido"
-      aria-label="Buscar persona"
-      [(ngModel)]="searchQuery"
-      (ngModelChange)="onSearchByNameAndLastName($event)"
-    />
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span>Buscador de Personas</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
   </div>
+  <button
+    (click)="resetFilter()"
+    class="btn-clear"
+    mat-raised-button
+    color="warn"
+  >
+    Limpiar Filtros
+  </button>
   <div>
+    <mat-form-field class="search-form-field">
+      <mat-label>Busqueda por nombre y/o apellido</mat-label>
+      <input
+        matInput
+        type="text"
+        (ngModelChange)="onSearchByNameAndLastName($event)"
+        [(ngModel)]="searchQuery"
+      />
+      <button
+        mat-button
+        *ngIf="searchQuery"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="searchQuery = ''"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div class="selectables-form">
     <div style="float: left">
-      <p>Region</p>
-      <select
-        [(ngModel)]="selectedRegion"
-        (ngModelChange)="onChangeRegionSelected($event)"
-        style="width: 40vw; margin-bottom: 16px"
+      <mat-form-field
+        style="width: 20vw; margin-bottom: 16px; margin-right: 16px"
+        appearance="fill"
       >
-        <option *ngFor="let region of regions" [value]="region.id">
-          {{ region.nombre }}
-        </option>
-      </select>
+        <mat-label>Region</mat-label>
+        <mat-select
+          [(ngModel)]="selectedRegion"
+          (ngModelChange)="onChangeRegionSelected($event)"
+        >
+          <mat-option *ngFor="let region of regions" [value]="region.id">
+            {{ region.nombre }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
     </div>
-    <div style="float: right">
-      <p>Comuna</p>
-      <select
-        [(ngModel)]="selectedComuna"
-        (ngModelChange)="onChangeComunaSelected($event)"
-        style="width: 40vw; margin-bottom: 16px"
+    <div style="float: inline-end">
+      <mat-form-field
+        style="width: 20vw; margin-bottom: 16px"
+        appearance="fill"
       >
-        <option *ngFor="let comuna of comunas" [value]="comuna.id">
-          {{ comuna.nombre }}
-        </option>
-      </select>
+        <mat-label>Comuna</mat-label>
+        <mat-select
+          [(ngModel)]="selectedComuna"
+          (ngModelChange)="onChangeComunaSelected($event)"
+        >
+          <mat-option *ngFor="let comuna of comunas" [value]="comuna.id">
+            {{ comuna.nombre }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+      <button
+        (click)="searchByDirection()"
+        class="btn-clear"
+        mat-raised-button
+        color="primary"
+      >
+        Buscar
+      </button>
     </div>
-    <button (click)="searchByDirection()" class="btn-clear">Buscar</button>
   </div>
   <div *ngIf="loading" class="loader"></div>
 
@@ -60,7 +99,12 @@
         <p>{{ persona.direccion.comuna.nombre }}</p>
       </th>
       <th>
-        <button (click)="onClickPersonaDetail(persona)" class="btn-search">
+        <button
+          (click)="onClickPersonaDetail(persona)"
+          class="btn-search"
+          mat-raised-button
+          color="accent"
+        >
           Detalle
         </button>
       </th>
