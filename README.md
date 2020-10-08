@@ -6,14 +6,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Local Configuration
 
-    _                      _                 ____ _     ___
-    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
-   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
-  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
- /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
-                |___/
-    
-
 Angular CLI: 9.1.12
 Node: 13.9.0
 OS: win32 x64
