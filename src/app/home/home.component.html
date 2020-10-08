@@ -1,0 +1,69 @@
+<div>
+  <h1>Personas</h1>
+  <button (click)="resetFilter()" class="btn-clear">Limpiar Filtros</button>
+  <div>
+    <input
+      class="search-input"
+      type="text"
+      placeholder="Busqueda por nombre y/o apellido"
+      aria-label="Buscar persona"
+      [(ngModel)]="searchQuery"
+      (ngModelChange)="onSearchByNameAndLastName($event)"
+    />
+  </div>
+  <div>
+    <div style="float: left">
+      <p>Region</p>
+      <select
+        [(ngModel)]="selectedRegion"
+        (ngModelChange)="onChangeRegionSelected($event)"
+        style="width: 40vw; margin-bottom: 16px"
+      >
+        <option *ngFor="let region of regions" [value]="region.id">
+          {{ region.nombre }}
+        </option>
+      </select>
+    </div>
+    <div style="float: right">
+      <p>Comuna</p>
+      <select
+        [(ngModel)]="selectedComuna"
+        (ngModelChange)="onChangeComunaSelected($event)"
+        style="width: 40vw; margin-bottom: 16px"
+      >
+        <option *ngFor="let comuna of comunas" [value]="comuna.id">
+          {{ comuna.nombre }}
+        </option>
+      </select>
+    </div>
+    <button (click)="searchByDirection()" class="btn-clear">Buscar</button>
+  </div>
+  <div *ngIf="loading" class="loader"></div>
+
+  <table>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Rut</th>
+    <th>Comuna</th>
+    <th>Acciones</th>
+    <tr *ngFor="let persona of personas">
+      <th>
+        <h3>{{ persona.nombre }}</h3>
+      </th>
+      <th>
+        {{ persona.apellido }}
+      </th>
+      <th>
+        <p>{{ persona.rut }}</p>
+      </th>
+      <th>
+        <p>{{ persona.direccion.comuna.nombre }}</p>
+      </th>
+      <th>
+        <button (click)="onClickPersonaDetail(persona)" class="btn-search">
+          Detalle
+        </button>
+      </th>
+    </tr>
+  </table>
+</div>

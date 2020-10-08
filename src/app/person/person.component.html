@@ -1,0 +1,30 @@
+<div><button [routerLink]="['/home']">Atras</button></div>
+<div *ngIf="persona" class="main-div">
+  <div class="container">
+    <div>
+      <p>Nombre</p>
+      <h3>{{ persona.nombre }} {{ persona.apellido }}</h3>
+    </div>
+    <hr />
+    <div>
+      <p>RUT</p>
+      <h3>{{ persona.rut | rut }}</h3>
+    </div>
+    <hr />
+    <div>
+      <p>Telefono</p>
+      <h3>
+        {{ persona.telefono | telefono }}
+      </h3>
+    </div>
+    <hr />
+    <div>
+      <p>Direccion</p>
+      <h3>
+        Calle:{{ persona.direccion.calle }},{{
+          persona.direccion.comuna.nombre
+        }}
+      </h3>
+    </div>
+  </div>
+</div>

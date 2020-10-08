@@ -1,0 +1,12 @@
+.main-div {
+  border: thick solid rgba(0, 0, 0, 0.164);
+  border-radius: 8px;
+}
+.container {
+  margin: 24px;
+}
+
+.invalid-data {
+  color: red;
+  font-weight: bold;
+}
