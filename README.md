@@ -17,18 +17,18 @@ Ivy Workspace: Yes
 
 Package                           Version
 -----------------------------------------------------------
-@angular-devkit/architect         0.901.12
-@angular-devkit/build-angular     0.901.12
-@angular-devkit/build-optimizer   0.901.12
-@angular-devkit/build-webpack     0.901.12
-@angular-devkit/core              9.1.12
-@angular-devkit/schematics        9.1.12
-@ngtools/webpack                  9.1.12
-@schematics/angular               9.1.12
-@schematics/update                0.901.12
-rxjs                              6.5.5
-typescript                        3.8.3
-webpack                           4.42.0
+* @angular-devkit/architect         0.901.12
+* @angular-devkit/build-angular     0.901.12
+* @angular-devkit/build-optimizer   0.901.12
+* @angular-devkit/build-webpack     0.901.12
+* @angular-devkit/core              9.1.12
+* @angular-devkit/schematics        9.1.12
+* @ngtools/webpack                  9.1.12
+* @schematics/angular               9.1.12
+* @schematics/update                0.901.12
+* rxjs                              6.5.5
+* typescript                        3.8.3
+* webpack                           4.42.0
 
 ## Development server
 
