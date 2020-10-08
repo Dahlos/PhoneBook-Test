@@ -31,6 +31,9 @@ export class HomeComponent implements OnInit {
     this.loadPersonas();
   }
 
+  /**
+   *
+   */
   loadRegiones() {
     this.apiSertice.getRegions().subscribe(
       (data: Region[]) => {
@@ -46,6 +49,9 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  /**
+   *
+   */
   loadPersonas() {
     this.apiSertice.getPersonas().subscribe(
       (data: Persona[]) => {
@@ -60,6 +66,10 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  /**
+   *
+   * @param query
+   */
   onSearchByNameAndLastName(query) {
     if (query.length <= 0) this.resetSelects();
     this.personas = this.auxPersonas;
@@ -78,16 +88,27 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  /**
+   *
+   */
   resetSelects() {
     this.selectedRegion = null;
     this.selectedRegion = null;
   }
 
+  /**
+   *
+   * @param region_id
+   */
   onChangeRegionSelected(region_id) {
     this.selectedComuna = undefined;
     this.filterComunasByRegion(region_id);
   }
 
+  /**
+   *
+   * @param id_comuna
+   */
   filterByDirection(id_comuna) {
     this.personas = this.personas.filter((persona: Persona) => {
       if (id_comuna) return persona.direccion.comuna.id == id_comuna;
@@ -100,6 +121,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  /**
+   *
+   * @param data
+   */
   onChangeComunaSelected(data) {
     this.comunas = this.auxComunas;
   }
@@ -118,7 +143,7 @@ export class HomeComponent implements OnInit {
   }
 
   /**
-   *
+   * Lleva a la pagina de detalle de la persona
    * @param persona
    */
   onClickPersonaDetail(persona: Persona) {
@@ -139,7 +164,7 @@ export class HomeComponent implements OnInit {
   }
 
   /**
-   *
+   * Filtra las personas por los valores de los select de region y comuna
    */
   searchByDirection() {
     if (!this.selectedComuna && !this.selectedRegion) return;
