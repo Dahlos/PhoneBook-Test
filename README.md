@@ -2,9 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
-## 
-
-Local Configuration
+## Local Configuration
 
 Angular CLI: 9.1.12
 Node: 13.9.0
